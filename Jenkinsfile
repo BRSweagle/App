@@ -11,6 +11,7 @@ pipeline {
     stage('Validate') {
       steps {
         SWEAGLEValidate(actionName: 'ValidateConfig', mdsName: 'JenkinsCD', errMax: 1, retryInterval: 3, showResults: true, warnMax: 3)
+        SWEAGLESnapshot(actionName: 'Snapshot', mdsName: 'JenkinsCD', showResults: true, tag: '${BUILD_ID}')
       }
     }
 
