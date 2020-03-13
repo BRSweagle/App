@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('ConfigUpload') {
       steps {
-        SWEAGLEUpload(actionName: 'uploadConfig', fileLocation: '*.json', format: 'json', nodePath: 'JenkinsCD', allowDelete: true, filenameNodes: true, showResults: true, tag: '${BUILD_ID}', withSnapshot: true)
+        SWEAGLEUpload(actionName: 'uploadConfig', fileLocation: '*.json', format: 'json', nodePath: 'JenkinsCD', allowDelete: true, filenameNodes: true, showResults: true, tag: '${BUILD_ID}')
         SWEAGLEUpload(actionName: 'Sweagle Upload props', fileLocation: '*.props', format: 'properties', nodePath: 'JenkinsCD', filenameNodes: true, showResults: true, subDirectories: true, tag: '${BUILD_ID}')
       }
     }
